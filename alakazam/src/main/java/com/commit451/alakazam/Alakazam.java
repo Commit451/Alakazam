@@ -4,6 +4,7 @@ import android.animation.ArgbEvaluator;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.annotation.TargetApi;
+import android.graphics.drawable.ColorDrawable;
 import android.support.annotation.ColorInt;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,6 +43,18 @@ public class Alakazam {
             }
         });
         return anim;
+    }
+
+    public static ObjectAnimator backgroundColorAnimator(View view, @ColorInt int endColor) {
+        if (!(view.getBackground() instanceof ColorDrawable)) {
+            throw new IllegalStateException("View needs to have a background which is an instance of ColorDrawable");
+        }
+        return backgroundColorAnimator(view, ((ColorDrawable) view.getBackground()).getColor(), endColor);
+    }
+
+    public static ObjectAnimator backgroundColorAnimator(View view, @ColorInt int startColor, @ColorInt int endColor) {
+        return ObjectAnimator.ofObject(view, "backgroundColor", sArgbEvaluator,
+                startColor, endColor);
     }
 
     @TargetApi(21)
