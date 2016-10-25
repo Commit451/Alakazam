@@ -52,6 +52,11 @@ public class Alakazam {
         return backgroundColorAnimator(view, ((ColorDrawable) view.getBackground()).getColor(), endColor);
     }
 
+    public static ObjectAnimator textColorAnimator(View view, @ColorInt int startColor, @ColorInt int endColor) {
+        return ObjectAnimator.ofObject(view, "textColor", sArgbEvaluator,
+                startColor, endColor);
+    }
+
     public static ObjectAnimator backgroundColorAnimator(View view, @ColorInt int startColor, @ColorInt int endColor) {
         return ObjectAnimator.ofObject(view, "backgroundColor", sArgbEvaluator,
                 startColor, endColor);
