@@ -6,9 +6,11 @@ import android.animation.ValueAnimator;
 import android.annotation.TargetApi;
 import android.graphics.drawable.ColorDrawable;
 import android.support.annotation.ColorInt;
+import android.support.annotation.NonNull;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.TextView;
 
 /**
  * Entry point into Animation things
@@ -17,7 +19,7 @@ public class Alakazam {
 
     private static ArgbEvaluator sArgbEvaluator = new ArgbEvaluator();
 
-    public static ValueAnimator widthAnimator(final View view, int currentWidth, int endWidth) {
+    public static ValueAnimator widthAnimator(@NonNull final View view, int currentWidth, int endWidth) {
         ValueAnimator anim = ValueAnimator.ofInt(currentWidth, endWidth);
         anim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
@@ -31,7 +33,7 @@ public class Alakazam {
         return anim;
     }
 
-    public static ValueAnimator heightAnimator(final View view, int currentHeight, int endHeight) {
+    public static ValueAnimator heightAnimator(@NonNull final View view, int currentHeight, int endHeight) {
         ValueAnimator anim = ValueAnimator.ofInt(currentHeight, endHeight);
         anim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
@@ -45,41 +47,41 @@ public class Alakazam {
         return anim;
     }
 
-    public static ObjectAnimator backgroundColorAnimator(View view, @ColorInt int endColor) {
+    public static ObjectAnimator textColorAnimator(@NonNull TextView view, @ColorInt int startColor, @ColorInt int endColor) {
+        return ObjectAnimator.ofObject(view, "textColor", sArgbEvaluator,
+                startColor, endColor);
+    }
+
+    public static ObjectAnimator backgroundColorAnimator(@NonNull View view, @ColorInt int endColor) {
         if (!(view.getBackground() instanceof ColorDrawable)) {
             throw new IllegalStateException("View needs to have a background which is an instance of ColorDrawable");
         }
         return backgroundColorAnimator(view, ((ColorDrawable) view.getBackground()).getColor(), endColor);
     }
 
-    public static ObjectAnimator textColorAnimator(View view, @ColorInt int startColor, @ColorInt int endColor) {
-        return ObjectAnimator.ofObject(view, "textColor", sArgbEvaluator,
-                startColor, endColor);
-    }
-
-    public static ObjectAnimator backgroundColorAnimator(View view, @ColorInt int startColor, @ColorInt int endColor) {
+    public static ObjectAnimator backgroundColorAnimator(@NonNull View view, @ColorInt int startColor, @ColorInt int endColor) {
         return ObjectAnimator.ofObject(view, "backgroundColor", sArgbEvaluator,
                 startColor, endColor);
     }
 
     @TargetApi(21)
-    public static ObjectAnimator statusBarColorAnimator(Window window, @ColorInt int endColor) {
+    public static ObjectAnimator statusBarColorAnimator(@NonNull Window window, @ColorInt int endColor) {
         return statusBarColorAnimator(window, window.getStatusBarColor(), endColor);
     }
 
     @TargetApi(21)
-    public static ObjectAnimator statusBarColorAnimator(Window window, @ColorInt int startColor, @ColorInt int endColor) {
+    public static ObjectAnimator statusBarColorAnimator(@NonNull Window window, @ColorInt int startColor, @ColorInt int endColor) {
         return ObjectAnimator.ofObject(window, "statusBarColor", sArgbEvaluator,
                 startColor, endColor);
     }
 
     @TargetApi(21)
-    public static ObjectAnimator navigationBarColorAnimator(Window window, @ColorInt int endColor) {
+    public static ObjectAnimator navigationBarColorAnimator(@NonNull Window window, @ColorInt int endColor) {
         return navigationBarColorAnimator(window, window.getNavigationBarColor(), endColor);
     }
 
     @TargetApi(21)
-    public static ObjectAnimator navigationBarColorAnimator(Window window, @ColorInt int startColor, @ColorInt int endColor) {
+    public static ObjectAnimator navigationBarColorAnimator(@NonNull Window window, @ColorInt int startColor, @ColorInt int endColor) {
         return ObjectAnimator.ofObject(window, "navigationBarColor", sArgbEvaluator,
                 startColor, endColor);
     }
