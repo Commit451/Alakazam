@@ -28,6 +28,12 @@
             android:layout_height="wrap_content"
             android:text="Animate" />
 
+        <Button
+            android:id="@+id/animate_kotlin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Animate Kotlin" />
+
         <ImageView
             android:id="@+id/icon"
             android:layout_width="wrap_content"

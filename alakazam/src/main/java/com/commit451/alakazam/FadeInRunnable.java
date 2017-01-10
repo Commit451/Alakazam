@@ -5,13 +5,13 @@ import android.view.View;
 import java.lang.ref.WeakReference;
 
 /**
- * Hides the view when run. Usually used with {@link android.view.ViewPropertyAnimator#withEndAction(Runnable)}
+ * Shows the view and sets its alpha to 0. Usually used with {@link android.view.ViewPropertyAnimator#withStartAction(Runnable)}
  */
-public class HideRunnable implements Runnable {
+public class FadeInRunnable implements Runnable {
 
     private WeakReference<View> viewWeakReference;
 
-    public HideRunnable(View view) {
+    public FadeInRunnable(View view) {
         viewWeakReference = new WeakReference<>(view);
     }
 
@@ -20,7 +20,8 @@ public class HideRunnable implements Runnable {
         if (viewWeakReference != null) {
             View view = viewWeakReference.get();
             if (view != null) {
-                view.setVisibility(View.GONE);
+                view.setAlpha(0.0f);
+                view.setVisibility(View.VISIBLE);
             }
         }
     }

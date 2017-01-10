@@ -9,16 +9,16 @@ import java.lang.ref.WeakReference;
  */
 public class ShowRunnable implements Runnable {
 
-    private WeakReference<View> mViewWeakReference;
+    private WeakReference<View> viewWeakReference;
 
     public ShowRunnable(View view) {
-        mViewWeakReference = new WeakReference<>(view);
+        viewWeakReference = new WeakReference<>(view);
     }
 
     @Override
     public void run() {
-        if (mViewWeakReference != null) {
-            View view = mViewWeakReference.get();
+        if (viewWeakReference != null) {
+            View view = viewWeakReference.get();
             if (view != null) {
                 view.setVisibility(View.VISIBLE);
             }

@@ -1,1 +1,1 @@
-include ':app', ':alakazam'
+include ':app', ':alakazam', ':alakazam-kotlin'

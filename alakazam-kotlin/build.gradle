@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion 25
@@ -19,17 +20,18 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    lintOptions {
-        abortOnError false
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
     }
 }
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    compile project(':alakazam')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:support-annotations:25.1.0'
     testCompile 'junit:junit:4.12'
 }
 

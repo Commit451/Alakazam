@@ -17,7 +17,7 @@ import android.widget.TextView;
  */
 public class Alakazam {
 
-    private static ArgbEvaluator sArgbEvaluator = new ArgbEvaluator();
+    private static ArgbEvaluator argbEvaluator = new ArgbEvaluator();
 
     public static ValueAnimator widthAnimator(@NonNull final View view, int currentWidth, int endWidth) {
         ValueAnimator anim = ValueAnimator.ofInt(currentWidth, endWidth);
@@ -48,7 +48,7 @@ public class Alakazam {
     }
 
     public static ObjectAnimator textColorAnimator(@NonNull TextView view, @ColorInt int startColor, @ColorInt int endColor) {
-        return ObjectAnimator.ofObject(view, "textColor", sArgbEvaluator,
+        return ObjectAnimator.ofObject(view, "textColor", argbEvaluator,
                 startColor, endColor);
     }
 
@@ -60,7 +60,7 @@ public class Alakazam {
     }
 
     public static ObjectAnimator backgroundColorAnimator(@NonNull View view, @ColorInt int startColor, @ColorInt int endColor) {
-        return ObjectAnimator.ofObject(view, "backgroundColor", sArgbEvaluator,
+        return ObjectAnimator.ofObject(view, "backgroundColor", argbEvaluator,
                 startColor, endColor);
     }
 
@@ -71,7 +71,7 @@ public class Alakazam {
 
     @TargetApi(21)
     public static ObjectAnimator statusBarColorAnimator(@NonNull Window window, @ColorInt int startColor, @ColorInt int endColor) {
-        return ObjectAnimator.ofObject(window, "statusBarColor", sArgbEvaluator,
+        return ObjectAnimator.ofObject(window, "statusBarColor", argbEvaluator,
                 startColor, endColor);
     }
 
@@ -82,7 +82,7 @@ public class Alakazam {
 
     @TargetApi(21)
     public static ObjectAnimator navigationBarColorAnimator(@NonNull Window window, @ColorInt int startColor, @ColorInt int endColor) {
-        return ObjectAnimator.ofObject(window, "navigationBarColor", sArgbEvaluator,
+        return ObjectAnimator.ofObject(window, "navigationBarColor", argbEvaluator,
                 startColor, endColor);
     }
 }
