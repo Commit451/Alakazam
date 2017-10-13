@@ -16,9 +16,9 @@ allprojects {
 then, in your app `build.gradle`
 ```groovy
 dependencies {
-    compile 'com.github.Commit451.Alakazam:alakazam:latest.version.here@aar'
+    compile 'com.github.Commit451.Alakazam:alakazam:latest.version.here'
     //and, for kotlin extensions
-    compile 'com.github.Commit451.Alakazam:alakazam-kotlin:latest.version.here@aar'
+    compile 'com.github.Commit451.Alakazam:alakazam-kotlin:latest.version.here'
 }
 ```
 

@@ -18,15 +18,15 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val icon = findViewById(R.id.icon) as ImageView
-        findViewById(R.id.animate).setOnClickListener {
+        val icon = findViewById<ImageView>(R.id.icon)
+        findViewById<View>(R.id.animate).setOnClickListener {
             if (icon.visibility == View.VISIBLE) {
                 icon.animate().alpha(0.0f).withEndAction(HideRunnable(icon))
             } else {
                 icon.animate().alpha(1.0f).withStartAction(FadeInRunnable(icon))
             }
         }
-        findViewById(R.id.animate_kotlin).setOnClickListener {
+        findViewById<View>(R.id.animate_kotlin).setOnClickListener {
             if (icon.visibility == View.VISIBLE) {
                 icon.fadeOut()
             } else {
@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        val buttonAnimateMe = findViewById(R.id.animate_me) as Button
+        val buttonAnimateMe = findViewById<Button>(R.id.animate_me)
         buttonAnimateMe.setOnClickListener {
             toggleText(buttonAnimateMe)
             val currentWidth = buttonAnimateMe.width
