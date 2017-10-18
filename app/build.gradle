@@ -24,6 +24,7 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:appcompat-v7:26.1.0'
-    compile project(':alakazam-kotlin')
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation project(':alakazam')
+    implementation project(':alakazam-kotlin')
 }
