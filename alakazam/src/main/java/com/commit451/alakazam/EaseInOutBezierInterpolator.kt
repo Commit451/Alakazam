@@ -13,16 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.commit451.alakazam;
+package com.commit451.alakazam
 
 
 /**
  * Ease in and out bezier interpolator
  * Thanks to Freddie (Musenkishi) Lust-Hed
  */
-public class EaseInOutBezierInterpolator extends CubicBezierInterpolator {
-
-    public EaseInOutBezierInterpolator() {
-        super(0.6f, 0.0f, 0.4f, 1.0f);
-    }
-}
+class EaseInOutBezierInterpolator : CubicBezierInterpolator(0.6f, 0.0f, 0.4f, 1.0f)

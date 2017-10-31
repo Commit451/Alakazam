@@ -16,37 +16,20 @@ allprojects {
 then, in your app `build.gradle`
 ```groovy
 dependencies {
-    compile 'com.github.Commit451.Alakazam:alakazam:latest.version.here'
-    //and, for kotlin extensions
-    compile 'com.github.Commit451.Alakazam:alakazam-kotlin:latest.version.here'
+    compile 'com.github.Commit451:Alakazam:latest.version.here'
 }
 ```
 
 # Usage
-Lots of prebuilt `ObjectAnimator`s can be accessed via `Alakazam` including:
-- widthAnimator
-- heightAnimator
-- textColorAnimator
-- backgroundColorAnimator
-- statusBarColorAnimator
-- navigationBarColorAnimator
+Lots of prebuilt `ObjectAnimator`s can be accessed via extension methods including:
+- view.widthAnimator()
+- view.heightAnimator()
+- textview.textColorAnimator()
+- view.backgroundColorAnimator()
+- window.statusBarColorAnimator()
+- window.navigationBarColorAnimator()
 
-For fading views in and out, you can make use of some prebuilt `Runnable`s:
-```java
-//Fading a view out
-icon.animate()
-    .alpha(0.0f)
-    .withEndAction(HideRunnable(icon))
-```
-as well as
-```java
-//Fading a view in
-icon.animate()
-    .alpha(1.0f)
-    .withStartAction(FadeInRunnable(icon))
-```
-
-With Kotlin, things can be even easier!
+For fading views in and out:
 ```kotlin
 icon.fadeOut()
 otherIcon.fadeIn()
