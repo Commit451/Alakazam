@@ -3,9 +3,9 @@ package com.commit451.alakazam
 import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
 import android.graphics.drawable.ColorDrawable
-import android.support.annotation.ColorInt
 import android.view.View
 import android.view.ViewPropertyAnimator
+import androidx.annotation.ColorInt
 import com.commit451.alakazam.Alakazam.argbEvaluator
 
 fun View.widthAnimator(currentWidth: Int, endWidth: Int): ValueAnimator {

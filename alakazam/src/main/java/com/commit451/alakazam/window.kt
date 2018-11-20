@@ -2,8 +2,8 @@ package com.commit451.alakazam
 
 import android.animation.ObjectAnimator
 import android.annotation.TargetApi
-import android.support.annotation.ColorInt
 import android.view.Window
+import androidx.annotation.ColorInt
 
 @TargetApi(21)
 fun Window.statusBarColorAnimator(@ColorInt endColor: Int): ObjectAnimator {
